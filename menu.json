@@ -1,6 +1,73 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "https://raw.githubusercontent.com/afeimod/Linbox-Rootfs-patchs/main/menu.json",
+  "featured": {
+    "title": "热门推荐",
+    "apps": [
+      {
+        "name": "QQ",
+        "icon": "/opt/apps/linbox/icons/qq.png",
+        "desc": "腾讯官方Linux客户端 - 即时通讯",
+        "commands": [
+          "cd /opt/apps/linbox/tmp",
+          "wget -c https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241121_arm64_01.deb",
+          "sudo apt reinstall -y ./QQ_3.2.13_241121_arm64_01.deb",
+          "rm QQ_3.2.13_241121_arm64_01.deb"
+        ]
+      },
+      {
+        "name": "微信",
+        "icon": "/opt/apps/linbox/icons/wechat.png",
+        "desc": "官方跨平台版本 - 即时通讯",
+        "commands": [
+          "cd /opt/apps/linbox/tmp",
+          "wget -c https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb",
+          "sudo apt reinstall -y ./WeChatLinux_arm64.deb",
+          "rm WeChatLinux_arm64.deb"
+        ]
+      },
+      {
+        "name": "VLC",
+        "icon": "/opt/apps/linbox/icons/vlc.png",
+        "desc": "全功能媒体播放器",
+        "commands": [
+          "sudo apt reinstall -y vlc"
+        ]
+      },
+      {
+        "name": "哔哩哔哩",
+        "icon": "/opt/apps/linbox/icons/bilibili.png",
+        "desc": "B站第三方客户端",
+        "commands": [
+          "cd /opt/apps/linbox/tmp",
+          "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb",
+          "sudo apt reinstall ./io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb -y",
+          "rm io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb"
+        ]
+      },
+      {
+        "name": "Firefox ESR",
+        "icon": "/opt/apps/linbox/icons/firefox-esr.png",
+        "desc": "长期支持版浏览器",
+        "commands": [
+          "sudo apt reinstall -y firefox-esr"
+        ]
+      },
+      {
+        "name": "VS Code",
+        "icon": "/opt/apps/linbox/icons/vscode.png",
+        "desc": "微软官方代码编辑器",
+        "commands": [
+          "cd /opt/apps/linbox/tmp",
+          "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/code.tar.gz",
+          "tar xf ./code.tar.gz -C /opt",
+          "sudo apt reinstall /opt/code_1.95.3-1731512059_arm64.deb -y",
+          "cp /opt/code.desktop /usr/share/applications/",
+          "rm code.tar.gz /opt/code_1.95.3-1731512059_arm64.deb"
+        ]
+      }
+    ]
+  },
   "categories": [
     {
       "name": "通讯办公",
@@ -25,7 +92,8 @@
             "cd /opt/apps/linbox/tmp",
             "wget -c https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb",
             "sudo apt reinstall -y ./WeChatLinux_arm64.deb",
-            "rm WeChatLinux_arm64.deb"
+            "rm WeChatLinux_arm64.deb",
+            "sudo apt reinstall -y libwebp* libtiff5-dev"
           ]
         },
         {
@@ -36,7 +104,8 @@
             "cd /opt/apps/linbox/tmp",
             "wget -c https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb",
             "sudo apt reinstall -y ./com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb",
-            "rm com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb"
+            "rm com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb",
+            "sudo apt reinstall -y libwebp6 libtiff5"
           ]
         },
         {
@@ -44,7 +113,10 @@
           "icon": "/opt/apps/linbox/icons/wps.png",
           "desc": "办公套件",
           "commands": [
-            "sudo apt reinstall -y wps-office"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/wps-office_11.1.0.11719_arm64.deb",
+            "sudo apt reinstall -y ./wps-office_11.1.0.11719_arm64.deb",
+            "rm wps-office_11.1.0.11719_arm64.deb"
           ]
         },
         {
@@ -58,7 +130,7 @@
         {
           "name": "Obsidian",
           "icon": "/opt/apps/linbox/icons/obsidian.png",
-          "desc": "知识笔记",
+          "desc": "知识笔记软件",
           "commands": [
             "sudo apt reinstall -y obsidian"
           ]
@@ -66,7 +138,7 @@
         {
           "name": "Shotcut",
           "icon": "/opt/apps/linbox/icons/shotcut.png",
-          "desc": "视频编辑",
+          "desc": "视频编辑软件",
           "commands": [
             "sudo apt reinstall -y shotcut"
           ]
@@ -80,33 +152,9 @@
         {
           "name": "VLC",
           "icon": "/opt/apps/linbox/icons/vlc.png",
-          "desc": "媒体播放器",
+          "desc": "全功能媒体播放器",
           "commands": [
             "sudo apt reinstall -y vlc"
-          ]
-        },
-        {
-          "name": "Parole",
-          "icon": "/opt/apps/linbox/icons/parole.png",
-          "desc": "轻量播放器",
-          "commands": [
-            "sudo apt reinstall -y parole"
-          ]
-        },
-        {
-          "name": "MPlayer",
-          "icon": "/opt/apps/linbox/icons/mplayer.png",
-          "desc": "经典播放器",
-          "commands": [
-            "sudo apt reinstall -y mplayer"
-          ]
-        },
-        {
-          "name": "Dragon Player",
-          "icon": "/opt/apps/linbox/icons/dragonplayer.png",
-          "desc": "KDE播放器",
-          "commands": [
-            "sudo apt reinstall -y dragonplayer"
           ]
         },
         {
@@ -127,19 +175,73 @@
           "commands": [
             "cd /opt/apps/linbox/tmp",
             "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/kekeys.deb",
+            "dpkg --add-architecture armhf",
+            "sudo apt update",
+            "sudo apt-get reinstall libc6:armhf zlib1g:armhf libstdc++6:armhf libglib2.0-0t64:armhf libnss3:armhf libatk-bridge2.0-0t64:armhf libx11-xcb1:armhf libgdk-pixbuf-xlib-2.0-0:armhf libgtk-3-0t64:armhf libdrm2:armhf libgbm1:armhf libasound2t64:armhf libasound2-plugins:armhf -y",
             "sudo apt reinstall ./kekeys.deb -y",
             "rm kekeys.deb"
           ]
         },
         {
+          "name": "Parole",
+          "icon": "/opt/apps/linbox/icons/parole.png",
+          "desc": "轻量级播放器",
+          "commands": [
+            "sudo apt reinstall -y parole"
+          ]
+        },
+        {
+          "name": "MPlayer",
+          "icon": "/opt/apps/linbox/icons/mplayer.png",
+          "desc": "命令行播放器",
+          "commands": [
+            "sudo apt reinstall -y mplayer"
+          ]
+        },
+        {
+          "name": "Dragon Player",
+          "icon": "/opt/apps/linbox/icons/dragonplayer.png",
+          "desc": "KDE媒体播放器",
+          "commands": [
+            "sudo apt reinstall -y dragonplayer"
+          ]
+        },
+        {
           "name": "哔哩哔哩",
           "icon": "/opt/apps/linbox/icons/bilibili.png",
-          "desc": "B站客户端",
+          "desc": "B站第三方客户端",
           "commands": [
             "cd /opt/apps/linbox/tmp",
             "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb",
             "sudo apt reinstall ./io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb -y",
             "rm io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb"
+          ]
+        },
+        {
+          "name": "Amarok",
+          "icon": "/opt/apps/linbox/icons/amarok.png",
+          "desc": "功能丰富的音乐播放器",
+          "commands": [
+            "sudo apt reinstall -y amarok"
+          ]
+        },
+        {
+          "name": "Audacious",
+          "icon": "/opt/apps/linbox/icons/audacious.png",
+          "desc": "轻量级音频播放器",
+          "commands": [
+            "sudo apt reinstall -y audacious"
+          ]
+        },
+        {
+          "name": "落雪音乐",
+          "icon": "/opt/apps/linbox/icons/lxmusic.png",
+          "desc": "第三方音乐平台",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/lx-music-desktop_2.10.0_arm64.deb",
+            "sudo apt reinstall -y ./lx-music-desktop_2.10.0_arm64.deb",
+            "rm lx-music-desktop_2.10.0_arm64.deb"
           ]
         }
       ]
@@ -149,9 +251,31 @@
       "desc": "游戏与模拟器",
       "apps": [
         {
+          "name": "仙剑奇侠传95",
+          "icon": "/opt/apps/linbox/icons/pal.png",
+          "desc": "经典角色扮演游戏",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/pal.deb",
+            "sudo apt reinstall -y ./pal.deb",
+            "rm pal.deb"
+          ]
+        },
+        {
+          "name": "云原神",
+          "icon": "/opt/apps/linbox/icons/yuanshen.png",
+          "desc": "网页版云原神",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/yunys.deb",
+            "sudo apt reinstall ./yunys.deb -y",
+            "rm yunys.deb"
+          ]
+        },
+        {
           "name": "GNOME游戏合集",
           "icon": "/opt/apps/linbox/icons/gnome-games.png",
-          "desc": "休闲小游戏",
+          "desc": "内置小游戏集合",
           "commands": [
             "sudo apt reinstall -y gnome-games"
           ]
@@ -159,7 +283,7 @@
         {
           "name": "PPSSPP",
           "icon": "/opt/apps/linbox/icons/ppsspp.png",
-          "desc": "PSP模拟器",
+          "desc": "PSP游戏模拟器",
           "commands": [
             "cd /opt/apps/linbox/tmp",
             "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/psp.tar.gz",
@@ -170,20 +294,9 @@
           ]
         },
         {
-          "name": "云原神",
-          "icon": "/opt/apps/linbox/icons/yuanshen.png",
-          "desc": "网页端",
-          "commands": [
-            "cd /opt/apps/linbox/tmp",
-            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/yunys.deb",
-            "sudo apt reinstall ./yunys.deb -y",
-            "rm yunys.deb"
-          ]
-        },
-        {
           "name": "网页游戏合集",
           "icon": "/opt/apps/linbox/icons/webgame.png",
-          "desc": "在线小游戏",
+          "desc": "在线小游戏集合",
           "commands": [
             "cd /opt/apps/linbox/tmp",
             "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/wygames.deb",
@@ -194,7 +307,7 @@
         {
           "name": "Mednafen",
           "icon": "/opt/apps/linbox/icons/mednafen.png",
-          "desc": "多平台模拟器",
+          "desc": "多合一游戏模拟器",
           "commands": [
             "sudo apt reinstall -y mednafen"
           ]
@@ -202,9 +315,21 @@
         {
           "name": "FCEUX",
           "icon": "/opt/apps/linbox/icons/fceux.png",
-          "desc": "FC模拟器",
+          "desc": "FC/NES模拟器",
           "commands": [
             "sudo apt reinstall -y fceux"
+          ]
+        },
+        {
+          "name": "益智游戏合集",
+          "icon": "/opt/apps/linbox/icons/puzzle.png",
+          "desc": "脑力训练游戏集合",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/deepin-elf-verify_all.deb",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/com.joydin.braingame_2.5.0_arm64.deb",
+            "sudo apt reinstall ./*.deb -y",
+            "rm *.deb"
           ]
         },
         {
@@ -212,23 +337,13 @@
           "icon": "/opt/apps/linbox/icons/rpcs3.png",
           "desc": "PS3模拟器",
           "commands": [
-            "echo 安装RPCS3需额外资源包"
-          ]
-        },
-        {
-          "name": "仙剑奇侠传95",
-          "icon": "/opt/apps/linbox/icons/pal.png",
-          "desc": "经典游戏",
-          "commands": [
-            "echo 安装仙剑奇侠传95"
-          ]
-        },
-        {
-          "name": "益智游戏合集",
-          "icon": "/opt/apps/linbox/icons/puzzle.png",
-          "desc": "益智合集",
-          "commands": [
-            "echo 安装益智游戏合集"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/rpcs3.tar.xz",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/PS3UPDAT.PUP",
+            "tar xf ./rpcs3.tar.xz -C /data/data/com.termux/files",
+            "cp ./PS3UPDAT.PUP /data/data/com.termux/files/home",
+            "chmod -R 700 /data/data/com.termux/files/usr/bin/ps3",
+            "rm rpcs3.tar.xz PS3UPDAT.PUP"
           ]
         }
       ]
@@ -240,7 +355,7 @@
         {
           "name": "Firefox ESR",
           "icon": "/opt/apps/linbox/icons/firefox-esr.png",
-          "desc": "长期支持版",
+          "desc": "长期支持版浏览器",
           "commands": [
             "sudo apt reinstall -y firefox-esr"
           ]
@@ -248,25 +363,34 @@
         {
           "name": "Firefox Spark",
           "icon": "/opt/apps/linbox/icons/firefox.png",
-          "desc": "推荐浏览器",
+          "desc": "linbox已经自带该浏览器",
           "commands": [
-            "echo 系统已内置"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/firefox-spark_132.0.2_plus_build2-0ubuntu0.22.04.1~mt1_arm64.deb",
+            "sudo apt reinstall ./firefox-spark_132.0.2_plus_build2-0ubuntu0.22.04.1~mt1_arm64.deb -y",
+            "rm firefox-spark_132.0.2_plus_build2-0ubuntu0.22.04.1~mt1_arm64.deb"
           ]
         },
         {
           "name": "Floorp",
           "icon": "/opt/apps/linbox/icons/floorp.png",
-          "desc": "Firefox定制版",
+          "desc": "基于Firefox定制",
           "commands": [
-            "sudo apt reinstall -y floorp"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/com.github.floorp_11.20.0_arm64.deb",
+            "sudo apt reinstall ./com.github.floorp_11.20.0_arm64.deb -y",
+            "rm com.github.floorp_11.20.0_arm64.deb"
           ]
         },
         {
           "name": "360浏览器",
           "icon": "/opt/apps/linbox/icons/360safe.png",
-          "desc": "国产浏览器",
+          "desc": "安全浏览器",
           "commands": [
-            "echo 安装360浏览器"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/browser360-cn-stable_10.6.1000.37-1_arm64.deb",
+            "sudo apt reinstall ./browser360-cn-stable_10.6.1000.37-1_arm64.deb -y",
+            "rm browser360-cn-stable_10.6.1000.37-1_arm64.deb"
           ]
         },
         {
@@ -274,7 +398,21 @@
           "icon": "/opt/apps/linbox/icons/chromium.png",
           "desc": "开源浏览器",
           "commands": [
-            "sudo apt reinstall -y chromium"
+            "sudo apt reinstall -y chromium chromium-l10n"
+          ]
+        },
+        {
+          "name": "Linbox浏览器",
+          "icon": "/opt/apps/linbox/icons/linbox-web.png",
+          "desc": "定制浏览器",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/linboxweb.deb",
+            "dpkg --add-architecture armhf",
+            "sudo apt update",
+            "sudo apt-get reinstall libc6:armhf zlib1g:armhf libstdc++6:armhf libglib2.0-0t64:armhf libnss3:armhf libatk-bridge2.0-0t64:armhf libx11-xcb1:armhf libgdk-pixbuf-xlib-2.0-0:armhf libgtk-3-0t64:armhf libdrm2:armhf libgbm1:armhf libasound2t64:armhf libasound2-plugins:armhf -y",
+            "sudo apt reinstall ./linboxweb.deb -y",
+            "rm linboxweb.deb"
           ]
         },
         {
@@ -282,7 +420,12 @@
           "icon": "/opt/apps/linbox/icons/vscode.png",
           "desc": "代码编辑器",
           "commands": [
-            "sudo apt reinstall -y code"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/code.tar.gz",
+            "tar xf ./code.tar.gz -C /opt",
+            "sudo apt reinstall /opt/code_1.95.3-1731512059_arm64.deb -y",
+            "cp /opt/code.desktop /usr/share/applications/",
+            "rm code.tar.gz /opt/code_1.95.3-1731512059_arm64.deb"
           ]
         },
         {
@@ -290,13 +433,16 @@
           "icon": "/opt/apps/linbox/icons/panda-cpp.png",
           "desc": "C++开发环境",
           "commands": [
-            "echo 安装熊猫C++"
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/redpanda-cpp_2.12-1_arm64.deb",
+            "sudo apt reinstall ./redpanda-cpp_2.12-1_arm64.deb -y",
+            "rm redpanda-cpp_2.12-1_arm64.deb"
           ]
         },
         {
           "name": "ProGuard",
           "icon": "/opt/apps/linbox/icons/proguard.png",
-          "desc": "代码混淆",
+          "desc": "代码混淆工具",
           "commands": [
             "sudo apt reinstall -y proguard"
           ]
@@ -304,47 +450,9 @@
         {
           "name": "Scratch",
           "icon": "/opt/apps/linbox/icons/scratch.png",
-          "desc": "图形化编程",
+          "desc": "图形化编程工具",
           "commands": [
             "sudo apt reinstall -y scratch"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "主题美化",
-      "desc": "桌面与主题增强",
-      "apps": [
-        {
-          "name": "输入法Deepin主题",
-          "icon": "/opt/apps/linbox/icons/deepin-theme.png",
-          "desc": "输入法美化",
-          "commands": [
-            "echo 安装Deepin主题"
-          ]
-        },
-        {
-          "name": "动态壁纸",
-          "icon": "/opt/apps/linbox/icons/dynamic-wallpaper.png",
-          "desc": "动态桌面",
-          "commands": [
-            "echo 安装动态壁纸"
-          ]
-        },
-        {
-          "name": "Windows 95主题",
-          "icon": "/opt/apps/linbox/icons/win95.png",
-          "desc": "经典主题",
-          "commands": [
-            "echo 安装Windows95主题"
-          ]
-        },
-        {
-          "name": "Plank Dock",
-          "icon": "/opt/apps/linbox/icons/plank.png",
-          "desc": "Dock栏",
-          "commands": [
-            "sudo apt reinstall -y plank"
           ]
         }
       ]
@@ -356,23 +464,59 @@
         {
           "name": "Krita",
           "icon": "/opt/apps/linbox/icons/krita.png",
-          "desc": "绘画软件",
+          "desc": "数字绘画工具",
           "commands": [
             "sudo apt reinstall -y krita krita-l10n"
           ]
         },
         {
+          "name": "Html文件浏览",
+          "icon": "/opt/apps/linbox/icons/html.png",
+          "desc": "用于浏览简单的html文件",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/htmlll.deb",
+            "sudo apt reinstall ./htmlll.deb -y",
+            "rm ./htmlll.deb"
+          ]
+        },
+        {
+          "name": "百度网盘linux",
+          "icon": "/opt/apps/linbox/icons/bdy.png",
+          "desc": "linux版百度网盘，仅供测试",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/baidunetdisk_4.17.7_arm64.deb",
+            "sudo apt reinstall ./baidunetdisk_4.17.7_arm64.deb -y",
+            "rm ./baidunetdisk_4.17.7_arm64.deb"
+          ]
+        },
+        {
           "name": "Blender",
           "icon": "/opt/apps/linbox/icons/blender.png",
-          "desc": "3D建模",
+          "desc": "3D建模软件",
           "commands": [
             "sudo apt reinstall -y blender"
           ]
         },
         {
+          "name": "奥维互动地图",
+          "icon": "/opt/apps/linbox/icons/ovital.png",
+          "desc": "地理信息工具",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://hub.myxuebi.top/afeimod/Debian-proot/releases/download/linboxsd/aowei.tar.gz",
+            "tar xf ./aowei.tar.gz -C /opt",
+            "sudo apt reinstall /opt/Linux-aarch64-OMap-2.7.1-build2024-10-21.3.deb -y",
+            "cp /opt/ovital-map.desktop /usr/share/applications/",
+            "rm /opt/Linux-aarch64-OMap-2.7.1-build2024-10-21.3.deb",
+            "rm aowei.tar.gz"
+          ]
+        },
+        {
           "name": "GIMP",
           "icon": "/opt/apps/linbox/icons/gimp.png",
-          "desc": "图像处理",
+          "desc": "图像处理软件",
           "commands": [
             "sudo apt reinstall -y gimp"
           ]
@@ -380,7 +524,7 @@
         {
           "name": "LibreCAD",
           "icon": "/opt/apps/linbox/icons/librecad.png",
-          "desc": "CAD设计",
+          "desc": "2D CAD软件",
           "commands": [
             "sudo apt reinstall -y librecad"
           ]
@@ -388,7 +532,7 @@
         {
           "name": "OpenSCAD",
           "icon": "/opt/apps/linbox/icons/openscad.png",
-          "desc": "参数建模",
+          "desc": "3D建模软件",
           "commands": [
             "sudo apt reinstall -y openscad"
           ]
@@ -396,9 +540,68 @@
         {
           "name": "Eye of GNOME",
           "icon": "/opt/apps/linbox/icons/eog.png",
-          "desc": "图片查看",
+          "desc": "图片查看器",
           "commands": [
             "sudo apt reinstall -y eog"
+          ]
+        },
+        {
+          "name": "百度翻译",
+          "icon": "/opt/apps/linbox/icons/baidufanyi.png",
+          "desc": "翻译工具",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/com.baidu.translateclient_1.5.3_arm64.deb",
+            "sudo apt reinstall ./com.baidu.translateclient_1.5.3_arm64.deb -y",
+            "rm com.baidu.translateclient_1.5.3_arm64.deb"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "主题美化",
+      "desc": "桌面与主题增强",
+      "apps": [
+        {
+          "name": "输入法Deepin主题",
+          "icon": "/opt/apps/linbox/icons/deepin-theme.png",
+          "desc": "输入法主题美化",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/fcitx5-ui-deepin-simple_0.1-2_all.deb",
+            "sudo apt reinstall ./fcitx5-ui-deepin-simple_0.1-2_all.deb -y",
+            "rm fcitx5-ui-deepin-simple_0.1-2_all.deb"
+          ]
+        },
+        {
+          "name": "动态壁纸",
+          "icon": "/opt/apps/linbox/icons/dynamic-wallpaper.png",
+          "desc": "桌面动态效果",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/linboxdtbz.deb",
+            "sudo apt reinstall ./linboxdtbz.deb -y",
+            "rm linboxdtbz.deb"
+          ]
+        },
+        {
+          "name": "Windows 95主题",
+          "icon": "/opt/apps/linbox/icons/win95.png",
+          "desc": "经典风格主题",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/xfce4-chicago95_1.0.0-1_all.deb",
+            "sudo apt reinstall ./xfce4-chicago95_1.0.0-1_all.deb -y",
+            "rm xfce4-chicago95_1.0.0-1_all.deb"
+          ]
+        },
+        {
+          "name": "Plank Dock",
+          "icon": "/opt/apps/linbox/icons/plank.png",
+          "desc": "任务栏美化工具",
+          "commands": [
+            "sudo apt reinstall -y plank",
+            "git clone https://hub.myxuebi.top/erikdubois/plank-themes.git ~/.local/share/plank/themes"
           ]
         }
       ]
@@ -408,12 +611,29 @@
       "desc": "清理与更新",
       "apps": [
         {
+          "name": "系统升级",
+          "icon": "/opt/apps/linbox/icons/system-upgrade.png",
+          "desc": "更新Linbox系统",
+          "commands": [
+            "sudo apt update && sudo apt upgrade -y"
+          ]
+        },
+        {
+          "name": "驱动更新",
+          "icon": "/opt/apps/linbox/icons/driver-update.png",
+          "desc": "硬件驱动管理",
+          "commands": [
+            "sudo ubuntu-drivers autoinstall"
+          ]
+        },
+        {
           "name": "清理缓存",
           "icon": "/opt/apps/linbox/icons/clean-cache.png",
           "desc": "删除临时文件",
           "commands": [
-            "sudo apt clean",
-            "rm -rf /opt/apps/linbox/tmp/*"
+            "cd /opt/apps/linbox/tmp",
+            "sudo rm -rf *",
+            "sudo apt clean"
           ]
         },
         {
@@ -421,23 +641,19 @@
           "icon": "/opt/apps/linbox/icons/upgrade.png",
           "desc": "升级应用商店",
           "commands": [
-            "echo 更新商店"
+            "cd /opt/apps/linbox/tmp",
+            "rm $(xdg-user-dir DESKTOP)/linboxsd.desktop",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/linbox.deb",
+            "sudo apt reinstall ./linbox.deb -y",
+            "rm *.deb"
           ]
         },
         {
-          "name": "系统升级",
-          "icon": "/opt/apps/linbox/icons/system-upgrade.png",
-          "desc": "升级系统",
-          "commands": [
-            "sudo apt update && sudo apt upgrade -y"
-          ]
-        },
-        {
-          "name": "本地安装deb(测试)",
+          "name": "本地安装deb",
           "icon": "/opt/apps/linbox/icons/deb.png",
-          "desc": "手动安装deb包",
+          "desc": "手动安装本地deb包",
           "commands": [
-            "echo 本功能需客户端调用文件选择器"
+            "@LOCAL_DEB@"
           ]
         },
         {
@@ -446,6 +662,99 @@
           "desc": "清理安装残留",
           "commands": [
             "sudo apt --fix-broken install -y"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wine组件",
+      "desc": "Windows兼容层",
+      "apps": [
+        {
+          "name": "Wine",
+          "icon": "/opt/apps/linbox/icons/wine.png",
+          "desc": "其他wow64和proton版wine",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox-proot/releases/tag/wine /root/"
+          ]
+        },
+        {
+          "name": "DXVK/D3D",
+          "icon": "/opt/apps/linbox/icons/dxvk.png",
+          "desc": "图形兼容组件",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox/releases/tag/dxvk /opt/dxvk1"
+          ]
+        },
+        {
+          "name": "Box组件",
+          "icon": "/opt/apps/linbox/icons/box.png",
+          "desc": "容器化支持工具",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox-proot/releases/tag/box /opt/box"
+          ]
+        },
+        {
+          "name": "TZ驱动",
+          "icon": "/opt/apps/linbox/icons/tz-driver.png",
+          "desc": "时区兼容组件",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox-proot/releases/tag/tz /opt/tz"
+          ]
+        },
+        {
+          "name": "运行库",
+          "icon": "/opt/apps/linbox/icons/runtime.png",
+          "desc": "基础依赖库",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox/releases/tag/yxk /opt/运行库"
+          ]
+        },
+        {
+          "name": "MOD补丁",
+          "icon": "/opt/apps/linbox/icons/mod.png",
+          "desc": "游戏模组支持",
+          "commands": [
+            "python3 /opt/apps/linbox/url.py https://gitee.com/afeimod/linbox/releases/tag/mod /opt/mod"
+          ]
+        },
+        {
+          "name": "360PE病毒扫描",
+          "icon": "/opt/apps/linbox/icons/360pe.png",
+          "desc": "扫描病毒文件并修复(wine)",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/SuperKillerWinPE64.tar.gz",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/SuperKillerWinPE.desktop",
+            "tar xf /opt/apps/linbox/tmp/SuperKillerWinPE64.tar.gz -C /data/data/com.termux/files/usr",
+            "cp /opt/apps/linbox/tmp/SuperKillerWinPE.desktop $(xdg-user-dir DESKTOP)",
+            "rm SuperKillerWinPE64.tar.gz"
+          ]
+        },
+        {
+    "name": "ISO软碟通",
+          "icon": "/opt/apps/linbox/icons/iso.png",
+          "desc": "ISO等镜像读取和提取软件",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/UltraISO.tar.gz",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/UltraISO.desktop",
+            "tar xf /opt/apps/linbox/tmp/UltraISO.tar.gz -C /data/data/com.termux/files/usr",
+            "cp /opt/apps/linbox/tmp/UltraISO.desktop $(xdg-user-dir DESKTOP)",
+            "rm UltraISO.tar.gz"
+          ]
+        },
+        {
+          "name": "露娜翻译器",
+          "icon": "/opt/apps/linbox/icons/luna.png",
+          "desc": "实时文本翻译",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/LunaTranslator.tar.xz",
+            "wget -c https://gitee.com/afeimod/linbox-proot/releases/download/exe/%E9%9C%B2%E5%A8%9C%E7%BF%BB%E8%AF%91%E5%99%A8wine.desktop",
+            "tar xf /opt/apps/linbox/tmp/LunaTranslator.tar.xz -C /data/data/com.termux/files/usr",
+            "cp /opt/apps/linbox/tmp/露娜翻译器wine.desktop $(xdg-user-dir DESKTOP)",
+            "rm LunaTranslator.tar.xz"
           ]
         }
       ]
