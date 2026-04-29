@@ -1,0 +1,454 @@
+{
+  "version": "1.0.0",
+  "source": "https://raw.githubusercontent.com/afeimod/Linbox-Rootfs-patchs/main/menu.json",
+  "categories": [
+    {
+      "name": "通讯办公",
+      "desc": "即时通讯与办公软件",
+      "apps": [
+        {
+          "name": "QQ",
+          "icon": "/opt/apps/linbox/icons/qq.png",
+          "desc": "腾讯官方Linux客户端",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.13_241121_arm64_01.deb",
+            "sudo apt reinstall -y ./QQ_3.2.13_241121_arm64_01.deb",
+            "rm QQ_3.2.13_241121_arm64_01.deb"
+          ]
+        },
+        {
+          "name": "微信",
+          "icon": "/opt/apps/linbox/icons/wechat.png",
+          "desc": "官方跨平台版本",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb",
+            "sudo apt reinstall -y ./WeChatLinux_arm64.deb",
+            "rm WeChatLinux_arm64.deb"
+          ]
+        },
+        {
+          "name": "钉钉",
+          "icon": "/opt/apps/linbox/icons/dingtalk.png",
+          "desc": "企业通讯工具",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb",
+            "sudo apt reinstall -y ./com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb",
+            "rm com.alibabainc.dingtalk_7.6.25.4122001_arm64.deb"
+          ]
+        },
+        {
+          "name": "WPS Office",
+          "icon": "/opt/apps/linbox/icons/wps.png",
+          "desc": "办公套件",
+          "commands": [
+            "sudo apt reinstall -y wps-office"
+          ]
+        },
+        {
+          "name": "LibreOffice",
+          "icon": "/opt/apps/linbox/icons/libreoffice.png",
+          "desc": "开源办公套件",
+          "commands": [
+            "sudo apt reinstall -y libreoffice"
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "icon": "/opt/apps/linbox/icons/obsidian.png",
+          "desc": "知识笔记",
+          "commands": [
+            "sudo apt reinstall -y obsidian"
+          ]
+        },
+        {
+          "name": "Shotcut",
+          "icon": "/opt/apps/linbox/icons/shotcut.png",
+          "desc": "视频编辑",
+          "commands": [
+            "sudo apt reinstall -y shotcut"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "影音娱乐",
+      "desc": "播放器与娱乐应用",
+      "apps": [
+        {
+          "name": "VLC",
+          "icon": "/opt/apps/linbox/icons/vlc.png",
+          "desc": "媒体播放器",
+          "commands": [
+            "sudo apt reinstall -y vlc"
+          ]
+        },
+        {
+          "name": "Parole",
+          "icon": "/opt/apps/linbox/icons/parole.png",
+          "desc": "轻量播放器",
+          "commands": [
+            "sudo apt reinstall -y parole"
+          ]
+        },
+        {
+          "name": "MPlayer",
+          "icon": "/opt/apps/linbox/icons/mplayer.png",
+          "desc": "经典播放器",
+          "commands": [
+            "sudo apt reinstall -y mplayer"
+          ]
+        },
+        {
+          "name": "Dragon Player",
+          "icon": "/opt/apps/linbox/icons/dragonplayer.png",
+          "desc": "KDE播放器",
+          "commands": [
+            "sudo apt reinstall -y dragonplayer"
+          ]
+        },
+        {
+          "name": "Linbox聆音",
+          "icon": "/opt/apps/linbox/icons/music.png",
+          "desc": "音乐播放器",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/linboxyy.deb",
+            "sudo apt reinstall -y ./linboxyy.deb",
+            "rm linboxyy.deb"
+          ]
+        },
+        {
+          "name": "可可影视",
+          "icon": "/opt/apps/linbox/icons/keke.png",
+          "desc": "影视客户端",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/kekeys.deb",
+            "sudo apt reinstall ./kekeys.deb -y",
+            "rm kekeys.deb"
+          ]
+        },
+        {
+          "name": "哔哩哔哩",
+          "icon": "/opt/apps/linbox/icons/bilibili.png",
+          "desc": "B站客户端",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb",
+            "sudo apt reinstall ./io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb -y",
+            "rm io.github.msojocs.bilibili_1.15.2-2.1_arm64.deb"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "游戏摸鱼",
+      "desc": "游戏与模拟器",
+      "apps": [
+        {
+          "name": "GNOME游戏合集",
+          "icon": "/opt/apps/linbox/icons/gnome-games.png",
+          "desc": "休闲小游戏",
+          "commands": [
+            "sudo apt reinstall -y gnome-games"
+          ]
+        },
+        {
+          "name": "PPSSPP",
+          "icon": "/opt/apps/linbox/icons/ppsspp.png",
+          "desc": "PSP模拟器",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/psp.tar.gz",
+            "tar xf ./psp.tar.gz -C /opt",
+            "sudo apt reinstall /opt/psp/*.deb -y",
+            "rm -rf /opt/psp",
+            "rm psp.tar.gz"
+          ]
+        },
+        {
+          "name": "云原神",
+          "icon": "/opt/apps/linbox/icons/yuanshen.png",
+          "desc": "网页端",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/yunys.deb",
+            "sudo apt reinstall ./yunys.deb -y",
+            "rm yunys.deb"
+          ]
+        },
+        {
+          "name": "网页游戏合集",
+          "icon": "/opt/apps/linbox/icons/webgame.png",
+          "desc": "在线小游戏",
+          "commands": [
+            "cd /opt/apps/linbox/tmp",
+            "wget -c https://gitee.com/afeimod/linboxsd/releases/download/linbox/wygames.deb",
+            "sudo apt reinstall ./wygames.deb -y",
+            "rm wygames.deb"
+          ]
+        },
+        {
+          "name": "Mednafen",
+          "icon": "/opt/apps/linbox/icons/mednafen.png",
+          "desc": "多平台模拟器",
+          "commands": [
+            "sudo apt reinstall -y mednafen"
+          ]
+        },
+        {
+          "name": "FCEUX",
+          "icon": "/opt/apps/linbox/icons/fceux.png",
+          "desc": "FC模拟器",
+          "commands": [
+            "sudo apt reinstall -y fceux"
+          ]
+        },
+        {
+          "name": "RPCS3",
+          "icon": "/opt/apps/linbox/icons/rpcs3.png",
+          "desc": "PS3模拟器",
+          "commands": [
+            "echo 安装RPCS3需额外资源包"
+          ]
+        },
+        {
+          "name": "仙剑奇侠传95",
+          "icon": "/opt/apps/linbox/icons/pal.png",
+          "desc": "经典游戏",
+          "commands": [
+            "echo 安装仙剑奇侠传95"
+          ]
+        },
+        {
+          "name": "益智游戏合集",
+          "icon": "/opt/apps/linbox/icons/puzzle.png",
+          "desc": "益智合集",
+          "commands": [
+            "echo 安装益智游戏合集"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "网络开发",
+      "desc": "浏览器与开发工具",
+      "apps": [
+        {
+          "name": "Firefox ESR",
+          "icon": "/opt/apps/linbox/icons/firefox-esr.png",
+          "desc": "长期支持版",
+          "commands": [
+            "sudo apt reinstall -y firefox-esr"
+          ]
+        },
+        {
+          "name": "Firefox Spark",
+          "icon": "/opt/apps/linbox/icons/firefox.png",
+          "desc": "推荐浏览器",
+          "commands": [
+            "echo 系统已内置"
+          ]
+        },
+        {
+          "name": "Floorp",
+          "icon": "/opt/apps/linbox/icons/floorp.png",
+          "desc": "Firefox定制版",
+          "commands": [
+            "sudo apt reinstall -y floorp"
+          ]
+        },
+        {
+          "name": "360浏览器",
+          "icon": "/opt/apps/linbox/icons/360safe.png",
+          "desc": "国产浏览器",
+          "commands": [
+            "echo 安装360浏览器"
+          ]
+        },
+        {
+          "name": "Chromium",
+          "icon": "/opt/apps/linbox/icons/chromium.png",
+          "desc": "开源浏览器",
+          "commands": [
+            "sudo apt reinstall -y chromium"
+          ]
+        },
+        {
+          "name": "VS Code",
+          "icon": "/opt/apps/linbox/icons/vscode.png",
+          "desc": "代码编辑器",
+          "commands": [
+            "sudo apt reinstall -y code"
+          ]
+        },
+        {
+          "name": "熊猫C++",
+          "icon": "/opt/apps/linbox/icons/panda-cpp.png",
+          "desc": "C++开发环境",
+          "commands": [
+            "echo 安装熊猫C++"
+          ]
+        },
+        {
+          "name": "ProGuard",
+          "icon": "/opt/apps/linbox/icons/proguard.png",
+          "desc": "代码混淆",
+          "commands": [
+            "sudo apt reinstall -y proguard"
+          ]
+        },
+        {
+          "name": "Scratch",
+          "icon": "/opt/apps/linbox/icons/scratch.png",
+          "desc": "图形化编程",
+          "commands": [
+            "sudo apt reinstall -y scratch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "主题美化",
+      "desc": "桌面与主题增强",
+      "apps": [
+        {
+          "name": "输入法Deepin主题",
+          "icon": "/opt/apps/linbox/icons/deepin-theme.png",
+          "desc": "输入法美化",
+          "commands": [
+            "echo 安装Deepin主题"
+          ]
+        },
+        {
+          "name": "动态壁纸",
+          "icon": "/opt/apps/linbox/icons/dynamic-wallpaper.png",
+          "desc": "动态桌面",
+          "commands": [
+            "echo 安装动态壁纸"
+          ]
+        },
+        {
+          "name": "Windows 95主题",
+          "icon": "/opt/apps/linbox/icons/win95.png",
+          "desc": "经典主题",
+          "commands": [
+            "echo 安装Windows95主题"
+          ]
+        },
+        {
+          "name": "Plank Dock",
+          "icon": "/opt/apps/linbox/icons/plank.png",
+          "desc": "Dock栏",
+          "commands": [
+            "sudo apt reinstall -y plank"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "图形工具",
+      "desc": "设计与图像工具",
+      "apps": [
+        {
+          "name": "Krita",
+          "icon": "/opt/apps/linbox/icons/krita.png",
+          "desc": "绘画软件",
+          "commands": [
+            "sudo apt reinstall -y krita krita-l10n"
+          ]
+        },
+        {
+          "name": "Blender",
+          "icon": "/opt/apps/linbox/icons/blender.png",
+          "desc": "3D建模",
+          "commands": [
+            "sudo apt reinstall -y blender"
+          ]
+        },
+        {
+          "name": "GIMP",
+          "icon": "/opt/apps/linbox/icons/gimp.png",
+          "desc": "图像处理",
+          "commands": [
+            "sudo apt reinstall -y gimp"
+          ]
+        },
+        {
+          "name": "LibreCAD",
+          "icon": "/opt/apps/linbox/icons/librecad.png",
+          "desc": "CAD设计",
+          "commands": [
+            "sudo apt reinstall -y librecad"
+          ]
+        },
+        {
+          "name": "OpenSCAD",
+          "icon": "/opt/apps/linbox/icons/openscad.png",
+          "desc": "参数建模",
+          "commands": [
+            "sudo apt reinstall -y openscad"
+          ]
+        },
+        {
+          "name": "Eye of GNOME",
+          "icon": "/opt/apps/linbox/icons/eog.png",
+          "desc": "图片查看",
+          "commands": [
+            "sudo apt reinstall -y eog"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "系统维护",
+      "desc": "清理与更新",
+      "apps": [
+        {
+          "name": "清理缓存",
+          "icon": "/opt/apps/linbox/icons/clean-cache.png",
+          "desc": "删除临时文件",
+          "commands": [
+            "sudo apt clean",
+            "rm -rf /opt/apps/linbox/tmp/*"
+          ]
+        },
+        {
+          "name": "更新商店",
+          "icon": "/opt/apps/linbox/icons/upgrade.png",
+          "desc": "升级应用商店",
+          "commands": [
+            "echo 更新商店"
+          ]
+        },
+        {
+          "name": "系统升级",
+          "icon": "/opt/apps/linbox/icons/system-upgrade.png",
+          "desc": "升级系统",
+          "commands": [
+            "sudo apt update && sudo apt upgrade -y"
+          ]
+        },
+        {
+          "name": "本地安装deb(测试)",
+          "icon": "/opt/apps/linbox/icons/deb.png",
+          "desc": "手动安装deb包",
+          "commands": [
+            "echo 本功能需客户端调用文件选择器"
+          ]
+        },
+        {
+          "name": "清除失败残留",
+          "icon": "/opt/apps/linbox/icons/repair.png",
+          "desc": "清理安装残留",
+          "commands": [
+            "sudo apt --fix-broken install -y"
+          ]
+        }
+      ]
+    }
+  ]
+}
