@@ -1,4 +1,4 @@
-name: Build Box64 ALL (winlator)
+name: Build Box64 (winlator)
 
 on:
   workflow_dispatch:
@@ -86,28 +86,24 @@ jobs:
 
         make -j4
 
-        # 处理 box64 可执行文件
+        # 安装前处理可执行文件（解释器 + 精简）
         patchelf --set-interpreter /data/data/a.io.github.ewt45.winemulator/files/imagefs/usr/lib/ld-linux-aarch64.so.1 box64
         strip --strip-all --keep-section=.comment --keep-section=.note* box64
-
-        # 若编译了 box86，同样处理
         if [ -f box86 ]; then
           patchelf --set-interpreter /data/data/a.io.github.ewt45.winemulator/files/imagefs/usr/lib/ld-linux-armhf.so.3 box86 || true
           strip --strip-all --keep-section=.comment --keep-section=.note* box86 || true
         fi
 
-        # 复制配置文件 box64rc（如果源码中存在）
-        if [ -f ../system/box64rc ]; then
-          cp ../system/box64rc .
-        elif [ -f ../box64rc ]; then
-          cp ../box64rc .
-        fi
+        # 安装到临时目录
+        INSTALL_DIR=$(pwd)/install
+        make install DESTDIR=$INSTALL_DIR
 
-        # 打包所有相关文件：可执行文件 + 配置文件
-        # 使用 ls 列出存在的文件，避免报错
-        FILES_TO_PACK=$(ls box64 box86 box64rc 2>/dev/null | tr '\n' ' ')
-        tar -cJf box64-${BOX64_VERSION}-${BUILD_DATE}.tar.xz $FILES_TO_PACK
-        echo "打包文件列表: $FILES_TO_PACK"
+        # 打包安装目录内所有文件（保留目录结构，如 bin/、lib/、etc/）
+        tar -cJf box64-${BOX64_VERSION}-${BUILD_DATE}.tar.xz -C $INSTALL_DIR .
+
+        # 校验包内容
+        echo "打包文件列表:"
+        tar -tJf box64-${BOX64_VERSION}-${BUILD_DATE}.tar.xz
 
     - name: 验证文件存在
       run: |
