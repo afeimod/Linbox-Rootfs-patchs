@@ -1,4 +1,4 @@
-name: Build Box64 (winlator)
+name: Build Box64 ALL (winlator)
 
 on:
   workflow_dispatch:
