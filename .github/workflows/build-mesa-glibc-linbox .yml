@@ -1,5 +1,5 @@
 # build-mesa-winlator.yml
-name: Build Mesa Winlator (aarch64 only)
+name: Build Mesa linbox (aarch64 only)
 
 on:
   workflow_dispatch:
